@@ -61,7 +61,7 @@ idlewait true
 seriala /dev/tnt1
 serialb /dev/null
 udptunnel false
-extfs /home/pi/Downloads
+extfs /home/admin/Downloads
 # screen dga/800/600
 screen win/640/480
 # screen win/512/342

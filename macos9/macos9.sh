@@ -56,7 +56,7 @@ ignoresegv true
 idlewait true
 seriala /dev/tnt1
 serialb /dev/null
-extfs /home/pi/Downloads
+extfs /home/admin/Downloads
 screen win/800/600
 # screen dga/800/600
 # screen win/640/480

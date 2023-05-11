@@ -34,7 +34,7 @@ ROM4OS[9]="https://www.redundantrobot.com/sheepshaver_files/roms/newworld86.rom.
 
 
 function usercheck {
-  [ $USER != "pi" ] && echo 'Run this script as the "pi" user.' && exit
+  [ $USER != "admin" ] && echo 'Run this script as the "admin" user.' && exit
 }
 
 function updateinfo {
@@ -90,12 +90,12 @@ function net_error {
 
 
 function Base_dir {
-   [ -d ${BASE_DIR} ] || ( sudo mkdir -p ${BASE_DIR} && sudo chown pi:pi ${BASE_DIR} )
+   [ -d ${BASE_DIR} ] || ( sudo mkdir -p ${BASE_DIR} && sudo chown admin:admin ${BASE_DIR} )
 }
 
 
 function Src_dir {
-   [ -d ${SRC_DIR} ] || ( sudo mkdir -p ${SRC_DIR} && sudo chown pi:pi ${SRC_DIR} )
+   [ -d ${SRC_DIR} ] || ( sudo mkdir -p ${SRC_DIR} && sudo chown admin:admin ${SRC_DIR} )
 }
 
 function Build_NetDriver {
@@ -112,7 +112,7 @@ printf "\e[95m"; echo '
 cd Linux/NetDriver
 make
 sudo make dev
-sudo chown pi /dev/sheep_net
+sudo chown admin /dev/sheep_net
 sudo make install
 sudo modprobe sheep_net
 
@@ -217,7 +217,7 @@ sudo apt install -y automake gobjc libudev-dev xa65 build-essential byacc texi2h
 Base_dir
 mkdir -p ${SRC_DIR}
 
-[ -d "/home/pi/Downloads" ] || mkdir /home/pi/Downloads
+[ -d "/home/admin/Downloads" ] || mkdir /home/admin/Downloads
 
 wget ${SDL2_SOURCE} -O - | tar -xz -C ${SRC_DIR}
 [ $? -ne 0 ] && net_error "SDL2 sources"
